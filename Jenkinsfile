@@ -1,13 +1,11 @@
 pipeline { 
     agent any 
-ECHO is on.
     stages { 
         stage('Checkout') { 
             steps { 
                 git 'https://github.com/mounikamunji/SimpleJavaApp.git' 
             } 
         } 
-ECHO is on.
         stage('Build Docker Image') { 
             steps { 
                 script { 
@@ -15,8 +13,7 @@ ECHO is on.
                 } 
             } 
         } 
-ECHO is on.
-        stage('Run Container') { 
+        stage('Run Docker Container') { 
             steps { 
                 script { 
                     docker.image("mounikamunji/simplejavaapp:latest").run() 
